@@ -17,9 +17,10 @@ internal class MenuRegistrarMusica : Menu
             Console.Write("Agora digite o título da música: ");
             string tituloDaMusica = Console.ReadLine()!;
             Console.Write("Agora digite o ano de lançamento da música: ");
-            int anoLancamento = int.Parse(Console.ReadLine()!);
-            artistaRecuperado.AdicionarMusica(new Musica(tituloDaMusica) { AnoLancamento = anoLancamento});
+            string anoLancamento = Console.ReadLine()!;
+            artistaRecuperado.AdicionarMusica(new Musica(tituloDaMusica) { AnoLancamento = Convert.ToInt32(anoLancamento) });
             Console.WriteLine($"A música {tituloDaMusica} de {nomeDoArtista} foi registrada com sucesso!");
+            artistaDAL.Atualizar(artistaRecuperado);
             Thread.Sleep(4000);
             Console.Clear();
         }

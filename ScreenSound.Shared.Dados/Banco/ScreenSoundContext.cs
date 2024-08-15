@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ScreenSound_OFC.Banco;
-internal class ScreenSoundContext : DbContext
+
+public class ScreenSoundContext : DbContext
 {
     public DbSet<Artista> Artistas { get; set; }
     public DbSet<Musica> Musicas { get; set; }
@@ -17,6 +18,10 @@ internal class ScreenSoundContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder
+            .UseSqlServer(connectionString)
+            .UseLazyLoadingProxies();
     }
+
+
 }
