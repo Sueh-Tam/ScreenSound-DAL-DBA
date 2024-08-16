@@ -7,11 +7,11 @@ public class Artista
     {
 
     }
-    public Artista(string nome, string bio)
+    public Artista(string nome, string bio, string fotoPerfil)
     {
         Nome = nome;
         Bio = bio;
-        FotoPerfil = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+        FotoPerfil = fotoPerfil;
     }
 
     public string Nome { get; set; }
