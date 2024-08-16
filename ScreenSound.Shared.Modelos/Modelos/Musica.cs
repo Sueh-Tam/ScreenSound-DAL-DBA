@@ -1,4 +1,6 @@
-﻿namespace ScreenSound_OFC.Modelos;
+﻿using ScreenSound.Shared.Modelos.Modelos;
+
+namespace ScreenSound_OFC.Modelos;
 
 public class Musica
 {
@@ -6,11 +8,9 @@ public class Musica
     {
 
     }
-    public Musica(string nome, int artistaId, int anoLancamento)
+    public Musica(string nome)
     {
         Nome = nome;
-        AnoLancamento = anoLancamento;
-        ArtistaId = artistaId;
     }
 
     public string Nome { get; set; }
@@ -18,8 +18,7 @@ public class Musica
     public int? AnoLancamento { get; set; }
     public int? ArtistaId { get; set; }
     public virtual Artista? Artista { get; set; }
-
-
+    public virtual ICollection<Genero> Generos { get; set; }
     public void ExibirFichaTecnica()
     {
         Console.WriteLine($"Nome: {Nome}");
