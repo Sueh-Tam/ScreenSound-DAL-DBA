@@ -10,7 +10,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddMudServices();
 // Register your API service
-builder.Services.AddScoped<ArtistaAPI>();
+builder.Services.AddScoped<ArtistaAPI>(); 
 builder.Services.AddScoped<MusicasAPI>();
 builder.Services.AddScoped<GeneroAPI>();
 
