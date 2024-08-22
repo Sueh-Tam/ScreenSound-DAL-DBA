@@ -3,9 +3,11 @@ using ScreenSound.Shared.Modelos.Modelos;
 using ScreenSound_OFC.Modelos;
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ScreenSound.Shared.Dados.Modelos;
 namespace ScreenSound_OFC.Banco;
 
-public class ScreenSoundContext : DbContext
+public class ScreenSoundContext : IdentityDbContext<PessoaComAcesso,PerfilDeAcesso, int>
 {
     public DbSet<Artista> Artistas { get; set; }
     public DbSet<Musica> Musicas { get; set; }
@@ -24,6 +26,7 @@ public class ScreenSoundContext : DbContext
         modelBuilder.Entity<Musica>()
             .HasMany(c => c.Generos)
             .WithMany(c => c.Musicas);
+        base.OnModelCreating(modelBuilder);
     }
 
 }
